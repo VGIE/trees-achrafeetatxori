@@ -95,7 +95,7 @@ namespace Trees
 
                 TreeNode<T> genericTreeNode = Children.Get(i);
 
-                if (this.Value.Equals(value))
+                if (genericTreeNode.Value.Equals(value))
                 {
                     Children.Remove(i);
                     i--;
