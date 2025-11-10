@@ -84,15 +84,15 @@ namespace BinaryTrees
             }
             else if (RightChild == null)
             {
-                return LeftChild.Count();
+                return LeftChild.Count() + 1;
             }
             else if (LeftChild == null)
             {
-                return RightChild.Count();
+                return RightChild.Count() + 1;
             }
             else
             {
-                total = LeftChild.Count() + RightChild.Count();
+                total = LeftChild.Count() + RightChild.Count() + 1;
             }
 
             return total;
@@ -104,13 +104,28 @@ namespace BinaryTrees
         {
             //TODO #4: Return the height of this tree
 
-            if (LeftChild.Height() > RightChild.Height())
+            if (LeftChild == null && RightChild == null)
             {
-                return LeftChild.Height();
+                return 0;
+            }
+            else if (LeftChild== null)
+            {
+                return RightChild.Height() + 1;
+            }
+            else if (RightChild == null)
+            {
+                return LeftChild.Height() + 1;
             }
             else
             {
-                return RightChild.Height();
+                if (LeftChild.Height() > RightChild.Height())
+                {
+                    return LeftChild.Height() + 1;
+                }
+                else
+                {
+                    return RightChild.Height() + 1;
+                }
             }            
         }
 
